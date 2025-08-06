@@ -122,22 +122,51 @@ In this module, you'll implement comprehensive logging and monitoring controls.
 
 ### Step 2.2: Set up CloudWatch Alarms for CloudTrail
 
+**Note**: AWS has simplified CloudTrail metrics in CloudWatch. The interface now shows API-level metrics rather than trail-specific metrics. This section provides a practical approach using the available metrics.
+
+#### Option A: Use Available CloudTrail API Metrics (Recommended)
+
 1. Navigate to CloudWatch service
 2. Click "Alarms" in the left navigation pane
 3. Click "Create alarm"
 4. Click "Select metric"
-5. Select "CloudTrail" > "By Trail Name"
-6. Select your trail and the "Management events" metric
-7. Click "Select metric"
-8. Set the threshold to "Static", "Greater/Equal", and enter "1" as the value
+5. In the search box, type "CloudTrail" and press Enter
+6. You should see a list of CloudTrail metrics. Select any of the available metrics such as:
+   - `CallCount` for any CloudTrail API operation (e.g., StartLogging, StopLogging, UpdateTrail)
+   - Choose one that represents a security-sensitive operation
+7. Select the metric and click "Select metric"
+8. Configure the alarm conditions:
+   - Statistic: Sum
+   - Period: 5 minutes
+   - Threshold type: Static
+   - Condition: Greater/Equal than 1
 9. Click "Next"
-10. For alarm state, choose "In alarm"
-11. Create a new SNS topic named "SecurityAlerts"
-12. Add your email address as a notification target
-13. Click "Create topic"
-14. Click "Next", set name to "CloudTrailChangesAlarm"
-15. Click "Create alarm"
-16. Confirm the subscription in the email you receive
+10. Configure notifications:
+    - Alarm state trigger: In alarm
+    - Select "Create new topic"
+    - Topic name: "SecurityAlerts"
+    - Email endpoint: Enter your email address
+11. Click "Create topic"
+12. Click "Next"
+13. Set alarm name: "CloudTrail-API-Activity-Alarm"
+14. Add description: "Alert on CloudTrail API activity"
+15. Click "Next" and "Create alarm"
+16. Confirm the SNS subscription in your email
+
+#### Option B: Create Custom Metric Filters (Alternative Approach)
+
+If the above metrics don't meet your needs, you can create custom metric filters:
+
+1. Navigate to CloudWatch > Logs
+2. Find your CloudTrail log group (if CloudWatch Logs integration is enabled)
+3. Click "Create metric filter"
+4. Use filter patterns like:
+   - `{ $.eventName = "StopLogging" }` - Detects when logging is stopped
+   - `{ $.eventName = "DeleteTrail" }` - Detects trail deletion
+   - `{ $.userIdentity.type = "Root" }` - Detects root user activity
+5. Create the metric filter and then create alarms based on these custom metrics
+
+**Important**: If you don't see CloudTrail metrics or if CloudWatch Logs integration isn't configured, focus on the general security alarms in Step 2.3 below, which use more readily available metrics.
 
 ### Step 2.3: Create Key CloudWatch Alarms
 

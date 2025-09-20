@@ -1,17 +1,17 @@
-# GRC Professional Portfolio: [Your Name]
+# GRC Professional Portfolio: Robert Lasco
 
 ## About Me
 
-Hello, I'm [Your Name], a Governance, Risk, and Compliance (GRC) professional with a focus on AWS cloud security. I'm passionate about building secure cloud environments and ensuring compliance with industry standards and regulations.
+Hello, I'm Robert Lasco, a Governance, Risk, and Compliance (GRC) professional with a focus on AWS cloud security. I'm passionate about building secure cloud environments and ensuring compliance with industry standards and regulations.
 
 [Brief professional summary: 2-3 sentences about your background, current role, and career interests]
 
 ## Contact Information
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [github.com/yourusername](https://github.com/yourusername)
-- **Location**: [City, State/Country]
+- **Email**: rdlasco@gmail.com
+- **LinkedIn**: www.linkedin.com/in/robertdlasco
+- **GitHub**: github.com/rdlasco
+- **Location**: San Diego, CA, USA
 
 ## Professional Summary
 
@@ -21,7 +21,6 @@ Hello, I'm [Your Name], a Governance, Risk, and Compliance (GRC) professional wi
 
 ### Cloud Platforms
 - Amazon Web Services (AWS)
-- [Other cloud platforms you have experience with]
 
 ### Security & Compliance
 - AWS Security Services (GuardDuty, Security Hub, IAM, Config)
@@ -37,9 +36,7 @@ Hello, I'm [Your Name], a Governance, Risk, and Compliance (GRC) professional wi
 
 ## Certifications
 
-- [Certification Name] - [Issuing Organization] - [Year]
-- [Certification Name] - [Issuing Organization] - [Year]
-- [Add your AWS certifications and other relevant credentials]
+- CompTIA Security+ - CompTIA  - 2022
 
 ## Projects
 
